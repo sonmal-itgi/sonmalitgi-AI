@@ -44,3 +44,28 @@ venv/
 .vscode/
 .DS_Store
 Thumbs.db
+
+
+# ==========================================
+# AI Hub analysis / experiment outputs
+# ==========================================
+
+all_morpheme/
+label_analysis/
+numeric_1to12/
+
+# Additional virtual environments
+.venv-mp/
+
+# Models
+*.keras
+*.h5
+
+# Generated CSV / dataset artifacts
+validation_manifest.csv
+fs_labels.csv
+numeric_labels.csv
+
+# TensorFlow
+logs/
+checkpoints/
