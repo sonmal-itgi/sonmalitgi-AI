@@ -27,3 +27,40 @@ src/
   training/      모델 학습
   inference/     실시간 추론
 docs/             개발 및 데이터 관련 문서
+
+
+## 현재 AI 파이프라인
+
+현재 첫 번째 수어 인식 모델은 AI Hub 지숫자 데이터 중 다음 12개 클래스를 사용하고 있습니다.
+
+| Class ID | Label |
+|---|---:|
+| FS0801 | 1 |
+| FS0802 | 2 |
+| FS0803 | 3 |
+| FS0804 | 4 |
+| FS0805 | 5 |
+| FS0806 | 6 |
+| FS0807 | 7 |
+| FS0808 | 8 |
+| FS0809 | 9 |
+| FS0810 | 10 |
+| FS0811 | 11 |
+| FS0812 | 12 |
+
+현재 파이프라인:
+
+```text
+AI Hub MP4
+    ↓
+morpheme annotation의 start ~ end 구간 추출
+    ↓
+MediaPipe Hands
+    ↓
+양손 landmark (128 features / frame)
+    ↓
+64-frame temporal resampling
+    ↓
+LSTM
+    ↓
+1 ~ 12 classification
